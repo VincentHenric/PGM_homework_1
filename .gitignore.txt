@@ -1,0 +1,7 @@
+.gitignore
+.ipynb_checkpoints
+*.swp
+.idea
+.vscode
+__pycache__
+data/.DS_Store
