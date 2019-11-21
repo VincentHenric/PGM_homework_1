@@ -36,5 +36,5 @@ def plot_boundary(X, y, coefs, title='', save = False):
     plt.legend(loc="upper right", fontsize=16)
     if save:
         print("Save figure results folder.")
-        plt.savefig('results/{}'.format(title))
+        plt.savefig('results/{}'.format(utils.sanitize(title)))
     plt.show()

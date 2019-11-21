@@ -6,6 +6,7 @@ Created on Tue Nov 19 18:14:09 2019
 """
 import numpy as np
 import pandas as pd
+import re
 
 def import_data(filename):
     train = pd.read_csv("data/{}".format(filename), delim_whitespace=True, header = None)
@@ -28,3 +29,10 @@ def accuracy(y_pred, y_true):
 def misclassification_rate(y_pred, y_true):
     # in percentage
     return round(100 * (1 - accuracy(y_pred, y_true)), 2)
+
+def sanitize(s):
+    """
+    remove all non alphanumeric from a string
+    """
+    return re.sub(r'\W+', '', s)
+#' '.join(s.replace(';', ' ').split()).replace(' ','-')
