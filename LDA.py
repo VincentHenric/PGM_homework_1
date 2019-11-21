@@ -49,6 +49,8 @@ def plot_boundary(X, y, coefs, title='', save = False):
 
     plt.xlim(x_min - offset, x_max + offset)
     plt.ylim(y_min - offset, y_max + offset)
+    plt.xlabel('x1')
+    plt.ylabel('x2')
     plt.title(title)
     plt.legend(loc="upper right", fontsize=16)
     if save:
