@@ -2,7 +2,7 @@
 """
 Created on Tue Nov 19 18:48:22 2019
 
-@author: Vincent Henric
+@author: Vincent Henric & Antoine Lepeltier
 """
 import utils
 import numpy as np

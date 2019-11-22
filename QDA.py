@@ -2,7 +2,7 @@
 """
 Created on Tue Nov 19 18:16:15 2019
 
-@author: Vincent Henric
+@author: Vincent Henric & Antoine Lepeltier
 """
 
 import utils
