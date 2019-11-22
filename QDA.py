@@ -64,7 +64,7 @@ def plot_boundary(X, y, coefs, title='', colormap = False, save = False):
     if colormap:
         plt.clf
         plt.imshow(Z, origin="lower", extent=[x_min - offset, x_max + offset, y_min - offset, y_max + offset], aspect = (x_max - x_min)/(y_max - y_min))
-    contours = plt.contour(X_mesh, Y_mesh, Z, utils.logit(1/2), colors='g')
+    contours = plt.contour(X_mesh, Y_mesh, Z, levels=0, colors='g')
     contours.collections[0].set_label('Decision boundary')
     plt.scatter(X[y == 0,0], X[y == 0,1], label = 'class 0')
     plt.scatter(X[y == 1,0], X[y == 1,1], label = 'class 1')
