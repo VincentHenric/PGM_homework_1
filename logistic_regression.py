@@ -8,18 +8,22 @@ import utils
 import numpy as np
 import matplotlib.pyplot as plt
 
-def newton(X, y, max_iter = 1000, n_iter=0, eps=pow(10,-6)):
+def learn(X, y, max_iter = 1000, eps=pow(10,-6)):
+    # IRLS method
+    n_iter=0
     w = np.array([[0,0,0]])
     X_T = np.transpose(X)
     while (n_iter < max_iter):
+        n_iter+=1
         grad = X_T@np.transpose(y-utils.expit(w@X_T))
         hess = -X_T@(X*np.transpose(utils.expit(-w@X_T)*utils.expit(w@X_T)))
-        w = w -np.transpose(np.linalg.inv(hess)@grad)
-        n_iter+=1
-        preci = np.linalg.norm(grad, ord=2)
-        if (preci < eps):
+        inv_hess = np.linalg.inv(hess)
+        w = w -np.transpose(inv_hess@grad)
+        lambda_criter=np.transpose(grad)@inv_hess@grad
+        if (lambda_criter*lambda_criter/2 < eps):
             break
     w = w.flatten()
+    print("Number of iterations IRLS : ",n_iter)
     return w[0], w[1], w[2]
 
 def proba_func(x, w1, w2, b):
